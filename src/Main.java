@@ -1,82 +1,91 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main{
-    static Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
-        //Java banking program
-        // yeh
+        Scanner scanner = new Scanner (System.in);
+        Random random = new Random();
+        int numOfDice;
+        int total = 0;
 
 
-        double balance = 0;
-        boolean isRunning = true;
-        int choice;
+        System.out.println("Enter the number of dice roll: ");
+        numOfDice = scanner.nextInt();
 
-        while (isRunning){
-            System.out.println("*************");
-            System.out.println("BANKING PROGRAM");
-            System.out.println("*************");
-            System.out.println("1. Show Balance");
-            System.out.println("2. Deposit");
-            System.out.println("3. Withdraw");
-            System.out.println("4. Exit");
-            System.out.println("*************");
+        if(numOfDice > 0){
 
-            System.out.println("Enter your choice (1-4): ");
-            choice = scanner.nextInt();
-
-            switch(choice){
-                case 1 -> showBalance(balance);
-                case 2 -> balance += deposit();
-                case 3 -> balance -= withdraw(balance);
-                case 4 -> isRunning = false;
-                default -> System.out.println("INVALID CHOICE");
+            for(int i = 0; i < numOfDice; i++) {
+                int roll = random.nextInt(1, 7);
+                printDie(roll);
+                System.out.println("You rolled: " + roll);
+                total += roll;
             }
+            System.out.println("Total: " + total);
+
+        }
+        else{
+            System.out.println("# of dice must be greater than 0");
         }
 
-        System.out.println("*************************");
-        System.out.println("Thank you! Have a nice day!");
+
 
         scanner.close();
     }
+    static void printDie(int roll){
 
-    static void showBalance(double balance){
-        System.out.println("*************");
-        System.out.printf("$%.2f\n", balance);
+        String dice1 = """
+                 -------
+                |       |
+                |   ●   |
+                |       |
+                 -------
+                """;
 
-    }
-    static double deposit(){
+        String dice2 = """
+                 -------
+                | ●     |
+                |       |
+                |     ● |
+                 -------
+                """;
+        String dice3 = """
+                 -------
+                | ●     |
+                |   ●   |
+                |     ● |
+                 -------
+                """;
+        String dice4 = """
+                 -------
+                | ●   ● |
+                |       |
+                | ●   ● |
+                 -------
+                """;
+        String dice5 = """
+                 -------
+                | ●   ● |
+                |   ●   |
+                | ●   ● |
+                 -------
+                """;
+        String dice6 = """
+                 -------
+                | ●   ● |
+                | ●   ● |
+                | ●   ● |
+                 -------
+                """;
 
-        double amount;
-
-        System.out.println("Enter an amount to be deposited");
-        amount = scanner.nextDouble();
-
-        if(amount <= 0){
-            System.out.println("Amount can't be negative");
-            return 0;
-        }
-        else{
-            return amount;
-        }
-
-    }
-    static double withdraw(double balance){
-
-        double amount;
-        System.out.println("Enter amount to be withdrawn: ");
-        amount = scanner.nextDouble();
-
-        if(amount > balance){
-            System.out.println("INSUFFICIENT FUNDS");
-            return 0;
-        }
-        else if(amount < 0){
-            System.out.println("Amount can't be negative");
-            return 0;
-        }
-        else{
-            return amount;
+        switch(roll){
+            case 1 -> System.out.print(dice1);
+            case 2 -> System.out.print(dice2);
+            case 3 -> System.out.print(dice3);
+            case 4 -> System.out.print(dice4);
+            case 5 -> System.out.print(dice5);
+            case 6 -> System.out.print(dice6);
+            default -> System.out.print("Invalid roll");
         }
 
     }
