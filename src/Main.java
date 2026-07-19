@@ -1,92 +1,158 @@
-import java.util.Random;
-import java.util.Scanner;
+public class Main {
+   public static void main(String[] args) throws InterruptedException {
 
-public class Main{
-    public static void main(String[] args){
+      String[] love = {
 
-        Scanner scanner = new Scanner (System.in);
-        Random random = new Random();
-        int numOfDice;
-        int total = 0;
+              """
+            _________________
+                    |
+                    |
+                    |
+                    |
+                    |
+                    |
+            _________________
+            """,
+
+              """
+            |
+            |
+            |
+            |
+            |
+            |
+            |________________
+            """,
+
+              """
+               OOOOOOOOO
+             OO         OO
+            OO           OO
+            OO           OO
+            OO           OO
+            OO           OO
+            OO           OO
+             OO         OO
+               OOOOOOOOO
+            """,
+
+              """
+            VV         VV
+             VV       VV
+              VV     VV
+               VV   VV
+                VV VV
+                 VVV
+                  V
+            """,
+
+              """
+            |--------------
+            |
+            |
+            |--------------
+            |
+            |
+            |--------------
+            """,
+
+              """
+            YY         YY
+             YY       YY
+              YY     YY
+               YY   YY
+                YYYYY
+                  Y
+                  Y
+                  Y
+            """,
+
+              """
+               OOOOOOOOO
+             OO         OO
+            OO           OO
+            OO           OO
+            OO           OO
+            OO           OO
+            OO           OO
+             OO         OO
+               OOOOOOOOO
+            """,
+
+              """
+            |               |
+            |               |
+            |               |
+            |               |
+            |               |
+            |               |
+            |               |
+            |_______________|
+            """,
+
+              """
+            BBBBBBBBBBBB
+            BB          BB
+            BB          BB
+            BBBBBBBBBBBB
+            BB          BB
+            BB          BB
+            BBBBBBBBBBBB
+            """,
+
+              """
+                AAAAA
+               AA   AA
+              AA     AA
+             AAAAAAAAAAA
+             AA       AA
+             AA       AA
+             AA       AA
+            """,
+
+              """
+            BBBBBBBBBBBB
+            BB          BB
+            BB          BB
+            BBBBBBBBBBBB
+            BB          BB
+            BB          BB
+            BBBBBBBBBBBB
+            """,
+
+              """
+            YY         YY
+             YY       YY
+              YY     YY
+               YY   YY
+                YYYYY
+                  Y
+                  Y
+                  Y
+            """,
+              """
+      ******       ******
+    **********   **********
+   *************************
+  ***************************
+  ***************************
+   *************************
+    ***********************
+      *******************
+        ***************
+          ***********
+            *******
+              ***
+               *
 
 
-        System.out.println("Enter the number of dice roll: ");
-        numOfDice = scanner.nextInt();
+               """
+      };
 
-        if(numOfDice > 0){
-
-            for(int i = 0; i < numOfDice; i++) {
-                int roll = random.nextInt(1, 7);
-                printDie(roll);
-                System.out.println("You rolled: " + roll);
-                total += roll;
-            }
-            System.out.println("Total: " + total);
-
-        }
-        else{
-            System.out.println("# of dice must be greater than 0");
-        }
-
-
-
-        scanner.close();
-    }
-    static void printDie(int roll){
-
-        String dice1 = """
-                 -------
-                |       |
-                |   ●   |
-                |       |
-                 -------
-                """;
-
-        String dice2 = """
-                 -------
-                | ●     |
-                |       |
-                |     ● |
-                 -------
-                """;
-        String dice3 = """
-                 -------
-                | ●     |
-                |   ●   |
-                |     ● |
-                 -------
-                """;
-        String dice4 = """
-                 -------
-                | ●   ● |
-                |       |
-                | ●   ● |
-                 -------
-                """;
-        String dice5 = """
-                 -------
-                | ●   ● |
-                |   ●   |
-                | ●   ● |
-                 -------
-                """;
-        String dice6 = """
-                 -------
-                | ●   ● |
-                | ●   ● |
-                | ●   ● |
-                 -------
-                """;
-
-        switch(roll){
-            case 1 -> System.out.print(dice1);
-            case 2 -> System.out.print(dice2);
-            case 3 -> System.out.print(dice3);
-            case 4 -> System.out.print(dice4);
-            case 5 -> System.out.print(dice5);
-            case 6 -> System.out.print(dice6);
-            default -> System.out.print("Invalid roll");
-        }
-
-    }
+      // Print all ASCII arts
+      for (String art : love) {
+         System.out.println(art);
+         Thread.sleep(1000);
+      }
+   }
 }
